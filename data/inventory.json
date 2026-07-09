@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nome": "biscoito",
+    "categoria": "doce",
+    "quantidade": 2,
+    "preco": 5
+  },
+  {
+    "id": 2,
+    "nome": "camisinha",
+    "categoria": "sexo",
+    "quantidade": 6,
+    "preco": 6.6
+  }
+]

@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "mysql2": "^3.22.6",
     "readline-sync": "^1.4.10"
   }
 }
