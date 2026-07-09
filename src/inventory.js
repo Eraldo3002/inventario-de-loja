@@ -67,5 +67,15 @@ async function addProduct(name, quantity, price) {
 function generateId() {
     return null; 
 }
+async function deleteProduct(id) {
+    try {
+        if (!pool) return false;
+        const [result] = await pool.query('DELETE FROM products WHERE id = ?', [id]);
+        return result.affectedRows > 0; // Retorna true se deletou alguém
+    } catch (error) {
+        console.error('Erro ao deletar produto no MySQL:', error.message);
+        return false;
+    }
+}
 
-module.exports = { initDB, loadData, addProduct, generateId };
+module.exports = { initDB, loadData, addProduct, deleteProduct, generateId };

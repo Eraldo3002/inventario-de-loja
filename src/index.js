@@ -1,5 +1,5 @@
 const readline = require('readline-sync');
-const { initDB, loadData, addProduct } = require('./inventory');
+const { initDB, loadData, addProduct, deleteProduct } = require('./inventory');
 
 async function main() {
     console.log("Conectando ao banco de dados...");
@@ -10,7 +10,8 @@ async function main() {
     while (true) {
         console.log("\n1. Listar Produtos");
         console.log("2. Adicionar Produto");
-        console.log("3. Sair");
+        console.log("3. Deletar Produto");
+        console.log("4. Sair");
         
         const opcao = readline.question("Escolha uma opcao: ");
         
@@ -38,6 +39,16 @@ async function main() {
             }
         } 
         else if (opcao === '3') {
+            const id = readline.questionInt("Digite o ID do produto que deseja deletar: ");
+            const sucesso = await deleteProduct(id);
+            
+            if (sucesso) {
+                console.log("\nProduto deletado com sucesso!");
+            } else {
+                console.log("\nProduto não encontrado ou erro ao deletar.");
+            }
+        } 
+        else if (opcao === '4') {
             console.log("\nSaindo do sistema...");
             process.exit(0);
         } 
